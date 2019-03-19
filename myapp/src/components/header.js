@@ -5,7 +5,7 @@ class Header extends Component{
     render(){
         return(
             <div>
-                <h1>Favorites Foods</h1>
+                <h4>Favorites Foods</h4>
             </div>
         )
     }
