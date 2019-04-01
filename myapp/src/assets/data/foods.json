@@ -1,0 +1,35 @@
+{
+    "foods":[
+        {
+            "id": 1,
+            "name": "Asado",
+            "country" : "Argentina",
+            "ingredients":[
+                "Asado de Tira",
+                "Pollo",
+                "Chorizo",
+                "Vacio"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Tacos",
+            "country" : "México",
+            "ingredients":[
+                "Tortilla",
+                "Carne",
+                "Cebolla",
+                "Salsa picante"
+            ]
+        }, {
+            "id": 3,
+            "name": "Anticuchos",
+            "country" : "Perú",
+            "ingredients":[
+                "Carne",
+                "Papa",
+                "Salsa"
+            ]
+        }
+    ]
+}

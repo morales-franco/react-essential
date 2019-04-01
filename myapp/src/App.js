@@ -1,18 +1,36 @@
 import React, { Component } from 'react';
 import Header from "./components/header"
-import Food, { Flag } from "./components/food"
+// import Food, { Flag } from "./components/food"
 import NewFood from "./components/newFood"
+import Foods from "./components/foods"
+// import Button from '@material-ui/core/Button';
+import data from "./assets/data/foods.json"
 
 import './styles/App.css';
 
 
 class App extends Component {
 
-  food = "pasta";
-  foods = ["pizza", "hot-dog", "burguer"]
+  state = {
+    food : "pasta",
+    foods : data.foods
+  }
 
   getCountFavouritesFoods(){
-    return this.foods.length;
+    return this.state.foods.length;
+  }
+
+  showDishes = e => {
+    e.preventDefault();
+    this.props.history.push("/foods")
+  }
+
+  handledUpdateFood = (index, updatedFoodName) => {
+    let newState = { ...this.state };
+    newState.foods[index].name = updatedFoodName;
+
+    this.setState(newState);
+    
   }
 
   render() {
@@ -20,9 +38,9 @@ class App extends Component {
       <div className="App">
         <Header/>
         <NewFood/>
-        <Flag></Flag>
-        <Food name={ this.food } quantity={this.getCountFavouritesFoods()}/>
-        My favorite food is { this.food } <br/>
+        {/* <Flag></Flag> */}
+        {/* <Food name={ this.food } quantity={this.getCountFavouritesFoods()}/> */}
+        {/* My favorite food is { this.food } <br/>
         My favorites foods are:
         <ul>
           {
@@ -30,7 +48,12 @@ class App extends Component {
               return <li key={i}> {food} </li>
             })
           }
-        </ul>
+        </ul> */}
+        {/* <Button variant="contained" color="secondary" onClick={ this.showDishes}>
+            Select!
+        </Button> */}
+
+        <Foods foods= { this.state.foods } onUpdateFood={ this.handledUpdateFood }/>
       </div>
     );
   }
