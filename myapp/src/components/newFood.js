@@ -28,6 +28,9 @@ class NewFood extends Component{
     //Material use!
        console.log(this.newFood.value);
        event.preventDefault();
+
+       this.props.onAddFood(this.newFood.value);
+       this.newFood.value = "";
     }
 
     

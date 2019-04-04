@@ -33,11 +33,26 @@ class App extends Component {
     
   }
 
+  addFood = (foodName) => {
+    let newState = { ...this.state };
+    
+    const newFood = {
+      id : newState.foods.length,
+      name : foodName,
+      country : "Argentina",
+      ingredients : ["Pollo", "Arroz"]
+    };
+
+    newState.foods.push(newFood);
+
+    this.setState(newState);
+  }
+
   render() {
     return (
       <div className="App">
         <Header/>
-        <NewFood/>
+        <NewFood onAddFood={this.addFood}/>
         {/* <Flag></Flag> */}
         {/* <Food name={ this.food } quantity={this.getCountFavouritesFoods()}/> */}
         {/* My favorite food is { this.food } <br/>
